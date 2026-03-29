@@ -1,5 +1,7 @@
 import { ProductCard } from '@widgets/ProductCard'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+import clsx from 'clsx'
 import iphoneImg from '@shared/assets/iphone.png'
 import airpodsImg from '@shared/assets/airpods.png'
 import styles from './HomePage.module.less'
@@ -44,38 +46,72 @@ const PRODUCTS = [
     reviewsCount: 3200,
     recommendedText: '95% рекомендуют',
   },
+    {
+    id: 5,
+    image: airpodsImg,
+    price: '12 400 ₽',
+    title: 'Наушники Apple AirPods (2-е поколение) с зарядным футляром',
+    ratingStars: 4,
+    reviewsCount: 3200,
+    recommendedText: '95% рекомендуют',
+  },
+    {
+    id: 6,
+    image: airpodsImg,
+    price: '12 400 ₽',
+    title: 'Наушники Apple AirPods (2-е поколение) с зарядным футляром',
+    ratingStars: 4,
+    reviewsCount: 3200,
+    recommendedText: '95% рекомендуют',
+  },
 ]
 
 function HomePage() {
   return (
-    <>
-      <section className={styles.center}>
-        <div className={styles.carouselContainer}>
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={'auto'}
-            breakpoints={{
-              768: {
-                slidesPerView: 3,
-              },
-              1200: {
-                slidesPerView: 4,
-              },
-            }}
-            className={styles.mySwiper}
-          >
-            {PRODUCTS.map((product) => (
-              <SwiperSlide key={product.id} className={styles.slide}>
-                <ProductCard {...product} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+    <div className={styles['home-page']}>
+      <section className={styles['home-page__center']}>
+        <div className={styles['home-page__carousel-container']}>
+          <div className={styles['home-page__carousel-wrapper']}>
+            <button 
+                className={clsx(styles['home-page__nav-button'], styles['home-page__nav-button_prev'])} 
+                aria-label="Previous slide"
+            ></button>
+            <button 
+                className={clsx(styles['home-page__nav-button'], styles['home-page__nav-button_next'])} 
+                aria-label="Next slide"
+            ></button>
+
+            <Swiper
+              modules={[Navigation]}
+              navigation={{
+                prevEl: `.${styles['home-page__nav-button_prev']}`,
+                nextEl: `.${styles['home-page__nav-button_next']}`,
+              }}
+              spaceBetween={20}
+              slidesPerView={'auto'}
+              breakpoints={{
+                768: {
+                  slidesPerView: 3,
+                },
+                1200: {
+                  slidesPerView: 4,
+                },
+              }}
+              className={styles['home-page__swiper']}
+            >
+              {PRODUCTS.map((product) => (
+                <SwiperSlide key={product.id} className={styles['home-page__slide']}>
+                  <ProductCard {...product} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </section>
 
-      <div className={styles.ticks}></div>
-      <section className={styles.spacer}></section>
-    </>
+      <div className={styles['home-page__ticks']}></div>
+      <section className={styles['home-page__spacer']}></section>
+    </div>
   )
 }
 

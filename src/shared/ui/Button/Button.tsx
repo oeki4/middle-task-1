@@ -12,7 +12,7 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <button
-      className={clsx(styles.Button, styles[variant], className)}
+      className={clsx(styles.button, variant && styles[`button_${variant}`], className)}
       {...otherProps}
     >
       {children}
