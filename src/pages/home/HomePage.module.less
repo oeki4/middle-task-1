@@ -1,0 +1,37 @@
+
+
+.center {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.carouselContainer {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  :global(.swiper) {
+     padding-inline: 16px;
+  }
+}
+
+.mySwiper {
+  :global(.swiper-slide) {
+     width: auto;
+     height: unset;
+     display: flex;
+     align-items: stretch;
+  }
+
+  :global(.swiper-wrapper) {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+.slide {
+  width: auto;
+}
