@@ -1,4 +1,5 @@
 import { ProductCard } from '@widgets/ProductCard'
+import { CategoryFilters } from '@widgets/CategoryFilters'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import clsx from 'clsx'
@@ -69,6 +70,7 @@ const PRODUCTS = [
 function HomePage() {
   return (
     <div className={styles['home-page']}>
+      <CategoryFilters className={styles['home-page__filters']} />
       <section className={styles['home-page__center']}>
         <div className={styles['home-page__carousel-container']}>
           <div className={styles['home-page__carousel-wrapper']}>

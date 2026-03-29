@@ -1,0 +1,44 @@
+.category-filters {
+  width: 100%;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    gap: 12px;
+    padding: 0 16px;
+  }
+
+  &__item {
+    padding: 10px 20px;
+    background: #f2f2f2;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #1d1d1f;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    outline: none;
+
+    &:hover {
+      background: #e8e8e8;
+    }
+
+    &_active {
+      background: #333;
+      color: #fff;
+
+      &:hover {
+        background: #222;
+      }
+    }
+  }
+}
